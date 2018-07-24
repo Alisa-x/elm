@@ -1,0 +1,59 @@
+1.全部店铺列表  get  /shop
+2.获取店铺详细信息 get /shop?id
+  {
+    "id":1,
+    "name": "吉野家",
+    "sale":1490,         销量
+    "origin":0,          起送
+    "freight":8,         运费
+    "distance":205,      距离
+    "time":55,           时间
+    "evaluate":4.8,      评分
+    "rests":[true,true,true],    票保广告
+    "hot":[                      活动
+      {
+        "type":"首单",
+        "title":"新用户下单立减17元"
+      }
+    ],
+    "img":"链接"                  店铺图片
+  },
+
+
+
+
+
+
+  3.全部订单列表 get /order
+  4. 获取订单详细信息 get /order?id
+  {
+    "id":1,
+    "name":"邻家便利店",
+    "orderTime":["2018-07-13","22:29"],   下单时间
+    "status":"订单已送达",
+    "commodity":[                         商品列表
+      {
+        "title":"农夫山泉550ml",
+        "number":1,
+        "price":2
+      },
+      {
+        "title":"蒙牛原麦早餐奶250ml",
+        "number":1,
+        "price":4.5
+      },
+      {
+        "title":"芝士面包100ml",
+        "number":1,
+        "price":6
+      }
+    ],
+    "freight":7,             运费
+    "discounts":-5,          满减
+    "hongbao":{"title":"果蔬商超红包","num":10},         红包
+    "deliveryTime":"22:52",                             送达时间
+    "site":["许静","12311112222","珠峰培训三楼304"],      地址
+    "type":"蜂鸟配送",
+    "horseman":"石医生",
+    "order":[1236127823716317,"在线支付"]               订单信息
+  }

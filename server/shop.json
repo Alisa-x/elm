@@ -1,0 +1,64 @@
+[
+  {
+    "id":"1",
+    "name": "吉野家",
+    "sale":1490,
+    "origin":0,
+    "freight":8,
+    "distance":205,
+    "time":55,
+    "evaluate":4.8,
+    "rests":[true,true,true],
+    "hot":[
+      {
+        "type":"首单",
+        "title":"新用户下单立减17元"
+      },
+      {
+        "type":"满减",
+        "title":"满60减30"
+      }
+    ],
+    "img":"http://fuss10.elemecdn.com/0/0c/39ca64bc08782d4b5436c8bbe37adpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"
+  },
+  {
+    "id":"2",
+    "name": "必胜客宅急送",
+    "sale":4567,
+    "origin":0,
+    "freight":5,
+    "distance":1.27,
+    "time":30,
+    "evaluate":4.5,
+    "rests":[true,false,false],
+    "hot":[
+      {
+        "type":"首单",
+        "title":"新用户下单立减17元"
+      },
+      {
+        "type":"满减",
+        "title":"满80减30"
+      }
+    ],
+    "img":"http://fuss10.elemecdn.com/a/b3/78e4a7079948628fcf617162a6ff6jpeg.jpeg?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/ormat/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"
+  },
+  {
+    "id":"3",
+    "name": "望京小腰",
+    "sale":1076,
+    "origin":20,
+    "freight":1,
+    "distance":1.19,
+    "time":90,
+    "evaluate":4.0,
+    "rests":[false,false,false],
+    "hot":[
+      {
+        "type":"首单",
+        "title":"新用户下单立减17元"
+      }
+    ],
+    "img":"http://fuss10.elemecdn.com/4/61/ac96f50d5aa520980f2db54d57608jpeg.jpeg?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/"
+  }
+]
