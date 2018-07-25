@@ -12,7 +12,7 @@ new Vue({
         axios.defaults.baseURL = 'http://localhost:9090';
         axios.post('/login', JSON.stringify(obj))
         .then((response)=> {
-            console.log(response.headers);
+            console.log(response.data);
          })
     },
     render: h => h(App)

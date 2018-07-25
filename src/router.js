@@ -15,11 +15,13 @@ export default new Router({
       {path:"/find",component:find},
       {path:"/order",component:order},
       {path:"/my",component:my},
-      {path:"/particulars/:flag",component:particulars, children:[
+      {path:"/particulars/:flag",component:particulars,
+          children:[
           {path:"menu",component:menu},
           {path:"estimate",component:estimate},
           {path:"shop",component:shop}
-      ]},
+      ]
+      },
       {path:"*",redirect:"/home"},
 
   ]

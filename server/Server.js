@@ -85,6 +85,21 @@ http.createServer((req,res)=>{
         });
 
     };
+    if(pathname === "/detail"&&req.method==="GET"){
+        let data = fs.readFileSync(path.join(__dirname,"detail.json"),"utf-8");
+        if(query.id){
+            data = JSON.parse(data);
+            data = data.filter(item=>item.id===query.id);
+            data = JSON.stringify(data)
+        };
+        res.writeHead(200,{
+            "Content-Type":"application/json;charset=utf-8",
+            "Access-Control-Allow-Origin":"*"
+        });
+        res.end(data);
+        return;
+    }
+
 }).listen(9090,()=>{
     console.log("9090的服务启动成功")
 })

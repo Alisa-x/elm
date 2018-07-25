@@ -1,5 +1,5 @@
 <template>
-    <div>shop</div>
+    <div class="shop">shop</div>
 </template>
 
 <script>
@@ -11,15 +11,12 @@
             }
         },
         created(){
-        //     axios.defaults.baseURL = 'http://localhost:9090';
-        //     axios.get('/shop?id=1')
-        //         .then((response)=>{
-        //             this.data=response.data[0];
-        //         });
         },
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+    .shop{
+        height: 92%;
+    }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>estimate</div>
+    <div class="estimate">estimate</div>
 </template>
 
 <script>
@@ -8,6 +8,8 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+    .estimate{
+        height: 92%;
+    }
 </style>
