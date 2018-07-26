@@ -62,6 +62,7 @@
                     this.data=response.data[0];
                 });
         },
+
     }
 </script>
 

@@ -1,230 +1,28 @@
 <template>
     <div class="menu">
         <div class="left">
-            <div>
+            <div ref="left">
                 <div class="left_main">
                     <ul>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
-                        <li>当季促销</li>
+                        <li v-for="(commodity,index) in data.commodity">{{commodity.title}}</li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="right">
+        <div class="right" ref="right">
             <div class="right_main">
-                <dl>
-                    <dt>当季促销</dt>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
+                <dl v-for="(commodity,index) in data.commodity">
+                    <dt>{{commodity.title}}</dt>
+                    <dd v-for="(commoditys,item) in commodity.commoditys">
+                        <img :src="commoditys.img" alt="">
                         <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
-                        </div>
-                    </dd>
-                    <dd>
-                        <img src="http://fuss10.elemecdn.com/6/fa/1efcebb4caf42d7676e1e8a1da39fpng.png?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/" alt="">
-                        <div>
-                            <h4>吉味双拼饭</h4>
-                            <p>鸡肉+牛肉+洋葱+蔬菜（西兰花、胡萝卜、菜花）</p>
-                            <p><span>月售1213份</span>好评率98%</p>
-                            <div><span>￥36.5</span><em>+</em></div>
+                            <h4>{{commoditys.name}}</h4>
+                            <p>{{commoditys.describe}}</p>
+                            <p>
+                                <span>月售{{commoditys.Sales}}份</span>
+                                好评率{{commoditys.estimate}}%
+                            </p>
+                            <div><span>￥{{commoditys.price}}</span><em>+</em></div>
                         </div>
                     </dd>
                 </dl>
@@ -258,6 +56,7 @@
         data(){
             return {
                 data:null,
+                distance:0
             }
         },
         created(){
@@ -267,6 +66,15 @@
                     this.data=response.data[0];
                 });
         },
+        updated(){
+            this.$refs.right.onscroll=()=>{
+                console.log(1);
+                this.$refs.right.scrollTop > this.distance &&
+                (document.body.scrollTop=document.documentElement.scrollTop = this.$refs.right.scrollTop );
+                this.distance = this.$refs.right.scrollTop;
+            }
+        }
+
     }
 </script>
 
@@ -308,6 +116,8 @@
                         font-weight: bolder;
                         line-height: .8rem;
                         padding-bottom: .3rem;
+                        padding-left: 6%;
+
                     }
                     dd{
                         height: 2.5rem;
