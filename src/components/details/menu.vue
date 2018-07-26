@@ -22,7 +22,14 @@
                                 <span>月售{{commoditys.Sales}}份</span>
                                 好评率{{commoditys.estimate}}%
                             </p>
-                            <div><span>￥{{commoditys.price}}</span><em>+</em></div>
+                            <div>
+                                <span>￥{{commoditys.price}}</span>
+                                <em>
+                                    <i class="iconfont icon-jian-copy" v-show="cart.commodity[index].commoditys[item].flag"></i>
+                                    {{cart.commodity[index].commoditys[item].num===0?"":cart.commodity[index].commoditys[item].num}}
+                                    <i class="iconfont icon-wuuiconxiangjifangda" @click="add(index,item)"></i>
+                                </em>
+                            </div>
                         </div>
                     </dd>
                 </dl>
@@ -59,13 +66,48 @@
                 distance:0,
                 flag:0,
                 timer:null,
+                cart:null,
             }
         },
         created(){
+            this.cart = JSON.parse(window.localStorage.getItem("cart"));
+            this.cart && (this.cart = this.cart.filter((item)=>{
+                return item.id===this.$route.params.flag;
+            })[0]);
+            console.log(this.cart);
+
             axios.defaults.baseURL = 'http://localhost:9090';
             axios.get('/detail?id='+this.$route.params.flag)
                 .then((response)=>{
                     this.data=response.data[0];
+
+
+                    //初始化本地数据
+                    if(!this.cart){
+                        let temp1 = {
+                            id:this.data.id,
+                            name:this.data.name,
+                            flag:false,
+                            commodity:[],
+                        }
+                        this.data.commodity.forEach((items,indexs)=>{
+                            let temp2 = {
+                                flag:false,
+                                commoditys:[],
+                            };
+                            items.commoditys.forEach((item,index)=>{
+                                let temp3 = {
+                                    flag:false,
+                                    price:item.price,
+                                    num:0,
+                                    name:item.name,
+                                };
+                                temp2.commoditys.push(temp3)
+                            });
+                            temp1.commodity.push(temp2)
+                        });
+                        this.cart=temp1;
+                    }
                 });
         },
         updated(){
@@ -115,10 +157,24 @@
 
                 },17)
             },
+            add(index,item){
+                console.log(this.cart.commodity[index].commoditys[item]);
+            },
         },
         computed:{
+
         },
         watch:{
+            cart:{
+                handler(){
+                    let temp = JSON.parse(window.localStorage.getItem("cart"));
+                    temp || (temp = []);
+                    temp && (temp=temp.filter((item)=>item.id!==this.$route.params.flag));
+                    temp.push(this.cart);
+                    window.localStorage.setItem("cart",JSON.stringify(temp));
+                },
+                deep: true
+            }
         },
 
     }
@@ -212,14 +268,18 @@
                                 em{
                                     float: right;
                                     font-style: normal;
-                                    color: #fff;
-                                    background: #2396ff;
-                                    line-height: .6rem;
-                                    font-size: .6rem;
-                                    width: .65rem;
-                                    padding-bottom: .07rem;
-                                    text-align: center;
-                                    border-radius: 50%;
+                                    color: #000;
+                                    font-size: .45rem;
+                                    i{
+                                        color: #2396ff;
+                                        font-size: .6rem;
+                                    }
+                                    i:nth-child(1){
+                                        margin-right: .2rem;
+                                    }
+                                    i:nth-child(2){
+                                        margin-left: .2rem;
+                                    }
                                 }
 
                             }
