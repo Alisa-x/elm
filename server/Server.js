@@ -99,6 +99,31 @@ http.createServer((req,res)=>{
         res.end(data);
         return;
     }
+    if(pathname === "/alter"&&req.method==="POST"){
+        let str = "";
+        let data= "";
+        req.on("data",data=>{str+=data});
+        req.on("end",()=>{
+            data = fs.readFileSync(path.join(__dirname,"login.json"),"utf-8");
+            data = JSON.parse(data);
+            str = JSON.parse(str);
+            data = data.filter(item.account!==str.account);
+            data.push(str);
+            fs.writeFile(path.join(__dirname,"login.json"),JSON.stringify(data),err=>{
+                if(err){
+                    res.end(err);
+                }
+                res.end("true");
+                return;
+            });
+            res.writeHead(200,{
+                "Content-Type":"application/json;charset=utf-8",
+                "Access-Control-Allow-Origin":"*"
+            });
+        });
+
+    };
+
 
 }).listen(9090,()=>{
     console.log("9090的服务启动成功")

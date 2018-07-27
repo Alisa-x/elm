@@ -8,6 +8,7 @@
     import amfeFlexible from "../node_modules/amfe-flexible/index";
     export default {
       created(){
+
       },
     }
 </script>

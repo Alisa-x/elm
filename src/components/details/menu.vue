@@ -66,14 +66,29 @@
                 distance:0,
                 flag:0,
                 timer:null,
-                cart:null,
+                cart:[],
             }
         },
         created(){
-            this.cart = JSON.parse(window.localStorage.getItem("cart"));
-            this.cart && (this.cart = this.cart.filter((item)=>{
-                return item.id===this.$route.params.flag;
-            })[0]);
+
+            this.cart = JSON.parse(window.localStorage.getItem("cart")) || this.cart;
+
+
+
+            if(this.cart.length){
+                let temp = this.cart.filter(item=>{
+                    return item.id===this.$route.params.flag;
+                });
+
+                if(temp.length){
+                    console.log(111111111);
+                    this.cart = temp
+                }
+
+            }
+
+
+
 
             axios.defaults.baseURL = 'http://localhost:9090';
             axios.get('/detail?id='+this.$route.params.flag)
@@ -82,8 +97,8 @@
 
 
                     //初始化本地数据
-                    if(!this.cart){
-                        console.log(11111111111);
+
+                    if(!this.cart.length){
                         let temp1 = {
                             id:this.data.id,
                             name:this.data.name,
@@ -106,11 +121,10 @@
                             });
                             temp1.commodity.push(temp2)
                         });
-                        console.log(temp1);
-                        this.cart=temp1;
-                        console.log(this.cart);
+                        this.cart.push(temp1);
 
                     }
+
                 });
         },
         updated(){
@@ -173,11 +187,14 @@
         watch:{
             cart:{
                 handler(Val1,Val2){
+                    console.log(Val1);
                     let temp = JSON.parse(window.localStorage.getItem("cart"));
                     temp || (temp = []);
                     temp=temp.filter((item)=>item.id!==this.$route.params.flag);
+                    temp=temp.filter((item)=>item.id!==Val1[0].id);
                     console.log(JSON.stringify(temp));
-                    temp.push(Val1);
+                    console.log(Val1[0]);
+                    temp.push(Val1[0]);
                     window.localStorage.setItem("cart",JSON.stringify(temp));
 
                 },
